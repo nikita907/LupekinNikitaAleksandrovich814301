@@ -1,0 +1,49 @@
+<apex:page showHeader="false">
+<style type='text/css'>
+     body{ background-color:white;  }
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://routine-automation-4e-dev-ed.my.salesforce.com',
+			'https://clinicminsk-developer-edition.ap27.force.com/minskClinic',
+			gslbBaseURL,
+			'00D5j000002VT2W',
+			'Terapevt',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c2-ukb.salesforceliveagent.com/content',
+				deploymentId: '5725j000000Xg02',
+				buttonId: '5735j000000bspt',
+				baseLiveAgentURL: 'https://d.la2-c2-ukb.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Terapevt',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://routine-automation-4e-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</apex:page>

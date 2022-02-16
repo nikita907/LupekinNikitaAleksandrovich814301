@@ -1,0 +1,12 @@
+<template>
+    <lightning-input required type="text" label="Заголовок" data-id="Subject" variant="label-inline" value={emailSubject}></lightning-input>
+    <lightning-input-rich-text
+        required
+        label="Текст"
+        value={emailText}
+        data-id="Text"
+        onchange={handleChange}>
+    </lightning-input-rich-text>
+    <br>
+    <button onclick={handleConfirmation} class="stretchButton slds-button slds-button_brand">Отправить сообщение</button>
+</template>

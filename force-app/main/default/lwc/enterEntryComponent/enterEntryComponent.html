@@ -1,0 +1,6 @@
+<template>
+    <lightning-input required type="text" label="Диагноз" data-id="diagnoz" variant="label-inline" value={emailSubject}></lightning-input>
+    <lightning-textarea required name="input3" label="Рекомендации доктора" data-id="suggestion" variant="label-inline" value={emailSubject} placeholder="Рекомендации доктора"></lightning-textarea>
+    <br>
+    <button onclick={handleConfirmation} class="stretchButton slds-button slds-button_brand">Внести информацию о посещении</button>
+</template>
